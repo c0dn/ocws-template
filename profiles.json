@@ -1,0 +1,122 @@
+{
+  "$schema": "https://c0dn.github.io/ocws/schema/profiles.schema.json",
+  "schemaVersion": 3,
+  "profiles": {
+    "webapp": {
+      "displayName": "Web app",
+      "description": "JavaScript/TypeScript web applications.",
+      "detect": {
+        "priority": 20,
+        "paths": [
+          "package.json",
+          "vite.config.*",
+          "next.config.*",
+          "astro.config.*"
+        ]
+      },
+      "workspaceConfig": {
+        "opencode": "workspace-configs/default/opencode.json",
+        "claude": "workspace-configs/default/settings.json",
+        "codex": "workspace-configs/default/config.toml"
+      },
+      "guide": "guides/webapp.md",
+      "scaffold": {
+        "dirs": [
+          "docs/decisions"
+        ],
+        "files": [
+          {
+            "path": "docs/decisions/README.md",
+            "source": "scaffolds/webapp/decisions-README.md"
+          }
+        ]
+      },
+      "basePacks": [
+        {
+          "id": "reviewer",
+          "manifest": "packs/agents/reviewer/manifest.json"
+        },
+        {
+          "id": "commit",
+          "manifest": "packs/commands/commit/manifest.json"
+        },
+        {
+          "id": "writing-tests",
+          "manifest": "packs/skills/writing-tests/manifest.json"
+        }
+      ],
+      "capabilityPackGroups": [
+        {
+          "id": "docs",
+          "displayName": "Library docs",
+          "description": "Up-to-date library documentation for the agent.",
+          "selectionMode": "multi",
+          "packs": [
+            {
+              "id": "context7",
+              "displayName": "Context7 MCP",
+              "manifest": "packs/mcp/context7/manifest.json"
+            }
+          ]
+        },
+        {
+          "id": "browser",
+          "displayName": "Browser automation",
+          "description": "Let the agent drive a real browser.",
+          "selectionMode": "zero-or-one",
+          "packs": [
+            {
+              "id": "playwright",
+              "displayName": "Playwright MCP",
+              "manifest": "packs/mcp/playwright/manifest.json",
+              "recommendWhen": {
+                "paths": [
+                  "playwright.config.*",
+                  "**/*.spec.ts",
+                  "e2e/"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "general": {
+      "displayName": "General",
+      "description": "Any other repository.",
+      "detect": {
+        "fallback": true
+      },
+      "workspaceConfig": {
+        "opencode": "workspace-configs/default/opencode.json",
+        "claude": "workspace-configs/default/settings.json",
+        "codex": "workspace-configs/default/config.toml"
+      },
+      "guide": "guides/general.md",
+      "basePacks": [
+        {
+          "id": "reviewer",
+          "manifest": "packs/agents/reviewer/manifest.json"
+        },
+        {
+          "id": "commit",
+          "manifest": "packs/commands/commit/manifest.json"
+        }
+      ],
+      "capabilityPackGroups": [
+        {
+          "id": "docs",
+          "displayName": "Library docs",
+          "selectionMode": "multi",
+          "packs": [
+            {
+              "id": "context7",
+              "displayName": "Context7 MCP",
+              "manifest": "packs/mcp/context7/manifest.json"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

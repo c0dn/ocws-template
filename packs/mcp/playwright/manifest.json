@@ -1,0 +1,45 @@
+{
+  "$schema": "https://c0dn.github.io/ocws/schema/pack.schema.json",
+  "schemaVersion": 3,
+  "id": "playwright",
+  "displayName": "Playwright MCP",
+  "componentType": "config-template",
+  "version": "1.0.0",
+  "description": "Playwright MCP: browser automation for the agent.",
+  "harnesses": [
+    "opencode"
+  ],
+  "files": [
+    {
+      "source": "opencode.json",
+      "destination": "{mcp}",
+      "installMode": "merge",
+      "jsonPointers": [
+        "/mcp/playwright"
+      ]
+    }
+  ],
+  "targets": {
+    "claude": {
+      "files": [
+        {
+          "source": "harness/claude/mcp.json",
+          "destination": "{mcp}",
+          "installMode": "merge",
+          "jsonPointers": [
+            "/mcpServers/playwright"
+          ]
+        }
+      ]
+    },
+    "codex": {
+      "files": [
+        {
+          "source": "harness/codex/mcp.toml",
+          "destination": "{mcp}",
+          "installMode": "toml-merge"
+        }
+      ]
+    }
+  }
+}

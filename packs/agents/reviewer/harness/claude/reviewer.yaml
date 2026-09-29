@@ -1,0 +1,3 @@
+name: reviewer
+description: Reviews the current change for bugs, risky patterns, and missing tests. Read-only.
+tools: Read, Grep, Glob, Bash

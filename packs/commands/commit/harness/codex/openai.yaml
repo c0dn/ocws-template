@@ -1,0 +1,3 @@
+# Run only when invoked explicitly ($commit).
+policy:
+  allow_implicit_invocation: false

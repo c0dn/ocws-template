@@ -1,0 +1,45 @@
+{
+  "$schema": "https://c0dn.github.io/ocws/schema/pack.schema.json",
+  "schemaVersion": 3,
+  "id": "commit",
+  "displayName": "Commit command",
+  "componentType": "command-pack",
+  "version": "1.0.0",
+  "description": "Writes a conventional commit for staged changes.",
+  "harnesses": [
+    "opencode"
+  ],
+  "files": [
+    {
+      "source": "commit.md",
+      "destination": "{commands}/commit.md"
+    }
+  ],
+  "targets": {
+    "claude": {
+      "files": [
+        {
+          "source": "commit.md",
+          "destination": "{skills}/commit/SKILL.md",
+          "render": "frontmatter",
+          "header": "harness/claude/commit.yaml"
+        }
+      ]
+    },
+    "codex": {
+      "files": [
+        {
+          "source": "commit.md",
+          "destination": "{skills}/commit/SKILL.md",
+          "render": "frontmatter",
+          "header": "harness/codex/commit.yaml"
+        },
+        {
+          "source": "harness/codex/openai.yaml",
+          "destination": "{skills}/commit/agents/openai.yaml",
+          "role": "support"
+        }
+      ]
+    }
+  }
+}

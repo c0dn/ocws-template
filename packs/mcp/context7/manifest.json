@@ -1,0 +1,45 @@
+{
+  "$schema": "https://c0dn.github.io/ocws/schema/pack.schema.json",
+  "schemaVersion": 3,
+  "id": "context7",
+  "displayName": "Context7 MCP",
+  "componentType": "config-template",
+  "version": "1.0.0",
+  "description": "Context7: current library documentation over MCP.",
+  "harnesses": [
+    "opencode"
+  ],
+  "files": [
+    {
+      "source": "opencode.json",
+      "destination": "{mcp}",
+      "installMode": "merge",
+      "jsonPointers": [
+        "/mcp/context7"
+      ]
+    }
+  ],
+  "targets": {
+    "claude": {
+      "files": [
+        {
+          "source": "harness/claude/mcp.json",
+          "destination": "{mcp}",
+          "installMode": "merge",
+          "jsonPointers": [
+            "/mcpServers/context7"
+          ]
+        }
+      ]
+    },
+    "codex": {
+      "files": [
+        {
+          "source": "harness/codex/mcp.toml",
+          "destination": "{mcp}",
+          "installMode": "toml-merge"
+        }
+      ]
+    }
+  }
+}

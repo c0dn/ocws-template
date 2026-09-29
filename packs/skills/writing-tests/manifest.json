@@ -1,0 +1,20 @@
+{
+  "$schema": "https://c0dn.github.io/ocws/schema/pack.schema.json",
+  "schemaVersion": 3,
+  "id": "writing-tests",
+  "displayName": "Writing tests skill",
+  "componentType": "skill-pack",
+  "version": "1.0.0",
+  "description": "Conventions for adding and fixing tests.",
+  "harnesses": [
+    "opencode",
+    "claude",
+    "codex"
+  ],
+  "files": [
+    {
+      "source": "writing-tests",
+      "destination": "{skills}/writing-tests"
+    }
+  ]
+}
